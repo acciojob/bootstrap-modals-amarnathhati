@@ -6,24 +6,18 @@
     <title>Bootstrap Modal Example</title>
 
     <!-- Include Bootstrap CSS and JavaScript -->
-    <!-- Add crossorigin attribute to the script tag -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.0.0/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Add crossorigin attribute to the script tag -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
 <!-- Button to open the modal -->
-<button id="open-modal" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newton-modal">Open Modal</button>
-
+<button id="open-modal" class="btn btn-primary">Open Modal</button>
 
 <!-- Bootstrap Modal -->
 <div class="modal fade" id="newton-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <!-- Modal Header -->
-			<button id="open-modal" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newton-modal">Open Modal</button>
-
             <div class="modal-header">
                 <h5 class="modal-title" id="modalLabel">New Modal</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -41,19 +35,22 @@
 </div>
 
 <script>
-    // JavaScript to open the modal when the button is clicked
-  document.getElementById("open-modal").addEventListener("click", function() {
-    // Initialize the modal with the rootElement option set to document.body
-    var modal = new bootstrap.Modal(document.getElementById("newton-modal"), {
-        rootElement: document.body
+    // Add an event listener to ensure Bootstrap modal initialization occurs after DOM is fully loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        // JavaScript to open the modal when the button is clicked
+        document.getElementById("open-modal").addEventListener("click", function() {
+            // Initialize the modal with the rootElement option set to document.body
+            var modal = new bootstrap.Modal(document.getElementById("newton-modal"), {
+                rootElement: document.body
+            });
+            modal.show();
+        });
     });
-    modal.show();
-});
-
-
-
-
 </script>
+
+<!-- Include Bootstrap JavaScript after the DOMContentLoaded event -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
+
