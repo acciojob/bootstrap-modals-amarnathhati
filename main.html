@@ -14,7 +14,8 @@
 <body>
 
 <!-- Button to open the modal -->
-<button id="open-modal" class="btn btn-primary">Open Modal</button>
+<button id="open-modal" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newton-modal">Open Modal</button>
+
 
 <!-- Bootstrap Modal -->
 <div class="modal fade" id="newton-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
@@ -41,10 +42,16 @@
 
 <script>
     // JavaScript to open the modal when the button is clicked
-    document.getElementById("open-modal").addEventListener("click", function() {
-        var modal = new bootstrap.Modal(document.getElementById("newton-modal"));
-        modal.show();
+  document.getElementById("open-modal").addEventListener("click", function() {
+    // Initialize the modal with the rootElement option set to document.body
+    var modal = new bootstrap.Modal(document.getElementById("newton-modal"), {
+        rootElement: document.body
     });
+    modal.show();
+});
+
+
+
 </script>
 
 </body>
